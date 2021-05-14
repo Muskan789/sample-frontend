@@ -55,12 +55,12 @@ export default function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        {/* <Button variant="outlined" size="small" onClick={handleAccount}>
+        <Button variant="outlined" size="small" onClick={handleAccount}>
          Account
-        </Button> */}
-        <Button variant="outlined" size="small" onClick={handleLogin}>
-          Login
         </Button>
+        {/* <Button variant="outlined" size="small" onClick={handleLogin}>
+          Login
+        </Button> */}
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
        

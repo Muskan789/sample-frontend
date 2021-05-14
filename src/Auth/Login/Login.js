@@ -51,8 +51,21 @@ export default function SignIn() {
   const classes = useStyles();
   const history = useHistory();
 
-  const handleLogin =()=>{
-    history.push("/admin");
+  const [email,setEmail] = React.useState('')
+  const [password,setPassword] = React.useState('')
+
+  const handleLogin =async()=>{
+alert(email)
+    if(email=='admin@gmail.com' && password=='1234'){
+      history.push("/admin");
+    }
+    else if (email=='user@gmail.com' && password=='4321'){
+      history.push("/user");
+    }
+    else{
+      history.push("/login");
+    }
+   
   }
 
   return (
@@ -75,6 +88,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={email}
+            onChange={(event)=>setEmail(event.target.value)}
           />
           <TextField
             variant="outlined"
@@ -86,6 +101,8 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password}
+            onChange={(event)=>setPassword(event.target.value)}
           />
           {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
