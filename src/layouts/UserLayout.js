@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Grid,Paper} from '@material-ui/core';
+import {Grid,Paper,Avatar,Typography,Divider} from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -14,38 +14,34 @@ import menus from '../menus';
 import user_routes from '../user_routes';
 import Sidebar from '../component/WebSection/Sidebar';
 import UserSidebar from '../component/UserSection/Sidebar';
+import Navbar from '../component/UserSection/Navbar'
 
+const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
+  content: {
+    paddingLeft: '2rem',
+  },
+  drawer: {
+    width: drawerWidth,
+    height:'500px',
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  toolbar: {
+    display: 'flex',
+    flexDirection: 'row',
+    padding:'2rem'
+  },
+ 
 }));
-
-const sidebar = {
-    title: 'About',
-    description:
-      'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-    archives: [
-      { title: 'March 2020', url: '#' },
-      { title: 'February 2020', url: '#' },
-      { title: 'January 2020', url: '#' },
-      { title: 'November 1999', url: '#' },
-      { title: 'October 1999', url: '#' },
-      { title: 'September 1999', url: '#' },
-      { title: 'August 1999', url: '#' },
-      { title: 'July 1999', url: '#' },
-      { title: 'June 1999', url: '#' },
-      { title: 'May 1999', url: '#' },
-      { title: 'April 1999', url: '#' },
-    ],
-    social: [
-      { name: 'GitHub', icon: GitHubIcon },
-      { name: 'Twitter', icon: TwitterIcon },
-      { name: 'Facebook', icon: FacebookIcon },
-    ],
-  };
   
 export default function Blog(props) {
+  const classes = useStyles();
 
   const switchRoutes = (
     <Switch>
@@ -64,16 +60,15 @@ export default function Blog(props) {
       <Redirect from="/user" to="/user/profile" />
     </Switch>
   );
-  
-  
-  const classes = useStyles();
 
   return (
     <div>
       <CssBaseline />
+      <Navbar/>
       <Container maxWidth="lg">
+        
         <Header1 title="Blog" menus={menus} />
-        <main>
+        {/* <main>
         
           <Grid container spacing={2} className={classes.mainGrid}>
             <Grid item md={3}>
@@ -88,7 +83,26 @@ export default function Blog(props) {
             {switchRoutes}</Paper>
             </Grid>
           </Grid>
-        </main>
+        </main> */}
+
+        {/* /////////////////////////// For Web////////////////////////////////// */}
+    
+        <Grid container spacing={2} className={classes.mainGrid}>
+   <Paper
+  className={classes.drawer}
+  variant="permanent"
+  classes={{
+    paper: classes.drawerPaper,
+  }}>
+  <div className={classes.toolbar} >
+  <Avatar alt="Person"  src="" /> <Typography style={{padding:'2%'}}  variant="h6" >Welcome</Typography>  </div>
+  <Divider/>
+  <UserSidebar user_routes={user_routes}  />
+  </Paper>
+        <main className={classes.content}>
+          {switchRoutes}
+           </main>
+      </Grid>
       </Container>
       {/* <Footer title="Footer" description="Something here to give the footer a purpose!" /> */}
     

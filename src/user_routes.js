@@ -9,7 +9,8 @@ import Home from "../src/views/WebSection/Home.js";
 //import Home from "../src/views/WebSection/Home.js";
 import Orders from "../src/views/AdminDashboard/Orders";
 import ReviewOrder from "../src/views/AdminDashboard/ReviewOrder";
-
+import Profile from '../src/views/WebSection/Profile';
+import UserOrders from '../src/views/WebSection/Orders';
 
 const userRoutes = [
   {
@@ -17,7 +18,7 @@ const userRoutes = [
     name: "Profile",
     //exact:true,
      icon: LibraryBooks,
-     component: Orders,
+     component: Profile,
     layout: "/user"
   },
   
@@ -26,7 +27,7 @@ const userRoutes = [
     name: "Order",
     //exact:true,
      icon: Dashboard,
-     component: ReviewOrder,
+     component: UserOrders,
     layout: "/user"
   },
 //   {

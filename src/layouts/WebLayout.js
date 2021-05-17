@@ -11,6 +11,8 @@ import Header from '../component/WebSection/Header';
 import Footer from '../component/WebSection/Footer';
 import Home from '../views/WebSection/Home';
 import menus from '../menus';
+import Navbar from '../component/WebSection/Navbar';
+
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -57,6 +59,7 @@ export default function Blog(props) {
   return (
     <div>
       <CssBaseline />
+      <Navbar/>
       <Container maxWidth="lg">
         <Header title="Blog" menus={menus} />
         <main>

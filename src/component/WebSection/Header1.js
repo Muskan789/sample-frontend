@@ -40,7 +40,7 @@ export default function Header(props) {
 
   return (
     <React.Fragment>
-      <Toolbar className={classes.toolbar}>
+      {/* <Toolbar className={classes.toolbar}>
         <Button size="small">Subscribe</Button>
         <Typography
           component="h2"
@@ -60,8 +60,8 @@ export default function Header(props) {
         </Button>
         {/* <Button variant="outlined" size="small" onClick={handleLogin}>
           Login
-        </Button> */}
-      </Toolbar>
+        </Button> 
+      </Toolbar> */}
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
        
         {menus.map((prop,key) => (
